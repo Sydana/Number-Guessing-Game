@@ -3,6 +3,28 @@ import java.util.Scanner;
 public class Number_guessing_game {
 
     public static void main(String[]args){
+        //==========|
+        //||        |
+        //||        0
+        //||      --+--
+        //||        |
+        //||       / \
+        //||
+
+        //    GAME OVER.
+
+
+
+        //If(hangedMan==1){
+        // System.out.println("||
+        // userLetter = k
+        // if(userLetter == a || b || 
+        // ||}
+        //hangMan++;
+
+
+
+
 
         int pickedNumber;
         Scanner keyboard;
