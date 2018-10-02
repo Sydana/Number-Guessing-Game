@@ -22,10 +22,10 @@ public class Number_guessing_game {
         int pickedNumber;
         Scanner keyboard;
         int guessedNumber;
-        String hangedManpic;
         pickedNumber = (int) (Math.random() * 100);
         boolean value = true;
         int hangedMan = 0;
+
 
         keyboard = new Scanner(System.in);
 
@@ -39,21 +39,23 @@ public class Number_guessing_game {
 
 
         while (value) {
-            hangedMan++;
+
             if (guessedNumber != pickedNumber) {
                 System.out.println(printMan(hangedMan, false, guessedNumber, pickedNumber));
                 guessedNumber = keyboard.nextInt();
 
             }
 
-            if (hangedMan > 5) {
-                value = true;
+            if (hangedMan > 6) {
+                value = false;
                 System.out.println(printMan(hangedMan, false, guessedNumber, pickedNumber));
 
             }
             if (guessedNumber == pickedNumber) {
                 System.out.println(printMan(hangedMan, true, guessedNumber, pickedNumber));
+                value = false;
             }
+            hangedMan++;
 
         }
     }
@@ -62,18 +64,35 @@ public class Number_guessing_game {
         String response = "";
         String message;
         if (win) {
-            message = "You WIN!";
+            message = "That is unbelievable. You WIN!";
         } else {
             if (guessedNumbeer > pickedNumbers) {
-                message = "You are too high";
+                message = "You are too high.";
             } else {
 
                 message = "You are too low!";
             }
         }
+
+
         switch (tries) {
+
+
             case 0:
-                response = "That is unbelievable";
+                Scanner keyboard;
+                keyboard = new Scanner(System.in);
+                String reset;
+
+                response = "==========|\n" +
+                        "||        \n" +
+                        "||        \n" +
+                        "||          \n" +
+                        "||        \n" +
+                        "||      \n" +
+                        "||\n"
+                        +message
+                        ;
+
                 break;
             case 1:
                 response =
@@ -85,7 +104,8 @@ public class Number_guessing_game {
                                 "||      \n" +
                                 "||\n" +
                                 "\n" +
-                                message;
+                                message+
+                                " Guess again.";
                 break;
             case 2:
                 response =
@@ -93,13 +113,27 @@ public class Number_guessing_game {
                                 "||        |\n" +
                                 "||        0\n" +
                                 "||        +  \n" +
-                                "||        |\n" +
+                                "||        \n" +
                                 "||      \n" +
                                 "||\n" +
                                 "\n" +
-                                message;
+                                message+
+                                " Guess again.";
                 break;
             case 3:
+                response =
+                        "==========|\n" +
+                                "||        |\n" +
+                                "||        0\n" +
+                                "||        +  \n" +
+                                "||        |\n" +
+                                "||       \n" +
+                                "||\n" +
+                                "\n" +
+                                message+
+                                " Guess again.";
+                break;
+            case 4:
                 response =
                         "==========|\n" +
                                 "||        |\n" +
@@ -109,9 +143,10 @@ public class Number_guessing_game {
                                 "||      _/ \n" +
                                 "||\n" +
                                 "\n" +
-                                message;
+                                message+
+                                " Guess again.";
                 break;
-            case 4:
+            case 5:
                 response =
                         "==========|\n" +
                                 "||        |\n" +
@@ -121,19 +156,8 @@ public class Number_guessing_game {
                                 "||      _/ \\_\n" +
                                 "||\n" +
                                 "\n" +
-                                message;
-                break;
-            case 5:
-                response =
-                        "==========|\n" +
-                                "||        |\n" +
-                                "||        0\n" +
-                                "||      --+  \n" +
-                                "||        |\n" +
-                                "||      _/ \\_\n" +
-                                "||\n" +
-                                "\n" +
-                                message;
+                                message+
+                                " Guess again.";
                 break;
             case 6:
                 response =
@@ -141,12 +165,13 @@ public class Number_guessing_game {
                         "==========|\n" +
                                 "||        |\n" +
                                 "||        0\n" +
-                                "||      --+--\n" +
+                                "||      --+\n" +
                                 "||        |\n" +
                                 "||      _/ \\_\n" +
                                 "||\n" +
                                 "\n" +
-                                message;
+                                message+
+                                " Guess again.";
                 break;
             case 7:
                 response =
@@ -158,7 +183,7 @@ public class Number_guessing_game {
                                 "||      --+--\n" +
                                 "||        |\n" +
                                 "||      _/ \\_\n" +
-                                "||\n" +
+                                "||\n"+
                                 "\n\n GAMEOVER"
                 ;
                 break;
